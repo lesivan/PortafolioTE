@@ -1,0 +1,197 @@
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: arial;
+}
+
+body {
+  background: #7AB39A;
+}
+
+h1 {
+  color: #ccc;
+  text-align: center;
+  font-family: 'Vibur', cursive;
+  font-size: 50px;
+}
+
+.login-form {
+  width: 350px;
+  padding: 40px 30px;
+  background: #eee;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+
+
+.log-btn {
+  background: #0AC986;
+  dispaly: inline-block;
+  width: 100%;
+  font-size: 16px;
+  height: 50px;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+#divider{
+  padding: 1rem;
+}
+
+.cl1{
+  padding: 5px;
+}
+.cl2{
+  padding-left: 5px;
+  color: #18a0e3;
+}
+.navbar-default .navbar-brand{
+  color: #18a0e3;
+}
+
+
+/*****************************/
+
+.card-content{
+  padding: 10px;
+}
+nav{
+  background-color: #7fc836;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating){
+  color: #18a0e3;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover{
+  color: #70B7E7;
+}
+
+/************************************/
+
+.li-visita{
+  width: 24.6%;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+.navbar-top-links li:last-child{
+  margin-right: 0px;
+}
+
+.content-visita{
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.areas{
+  text-align: center;
+}
+
+/**************************************/
+.col-chart{
+  padding-right: 0px;
+
+}
+.row-chart{
+  width: 99.99%;
+}
+#chart-content{
+  padding: 0px;
+}
+.input-chart{
+  margin: 1rem;
+}
+.input-group-addon{
+  background-color: #337ab7;
+  color: #fff;
+}
+
+
+/*****************************************/
+#modal-edit-visita{
+  width: 65%;
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+#dangerRemoveDialog{
+  width: 25%;
+}
+/************************************/
+hr{
+  border-color: #0277BD;
+}
+.linkInfo:hover, .linkInfo:link{
+  text-decoration: none;
+}
+#toPrint{
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.informe{
+  margin: 1%;
+  /*width: 50%;*/
+  text-align: center;
+}
+.informe th{
+  text-align: center;
+  background-color: #0277BD;
+  color: white;
+}
+.informe>tbody>tr>td{
+  padding: 3px; 
+}
+.informe>tbody>tr:hover{background-color: #EEEEEE}
+.tfoot{
+  background-color: #64B5F6;
+}
+.informeM{
+  text-align: left;
+  padding-left: 1rem; 
+}
+.labelInforme{
+  margin-right: 4rem;
+}
+#panelContainer{
+  width: 50%;
+  margin: auto;
+}
+
+/*****************************************/
+/*****************************************/
+/*****************************************/
+.form-inline{
+  text-align: center;
+  
+}
+.form-personas{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.icon{
+    text-align: center;
+}
