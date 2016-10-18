@@ -52,12 +52,12 @@ create table if not exists `carreraturno`
 (
 
 `idCarreraTurno` Int not null auto_increment primary key,
-`CodCarrera` varchar(30) not null,
+`idcarrera` int not null,
 `idturno` int not null,
 
-constraint `CodCarrera`
-foreign key (`CodCarrera`)
-references `carrera`(`CodCarrera`)
+constraint `idcarrera`
+foreign key (`idcarrera`)
+references `carrera`(`idcarrera`)
 on delete cascade
 on update cascade,
 
