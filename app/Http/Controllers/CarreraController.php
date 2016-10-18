@@ -18,6 +18,13 @@ class CarreraController extends Controller
 		return view('carrera.index');
 	}
 
+	public function listing(){
+		$carrera = DB::select("SELECT carrera.idcarrera, carrera.CodCarrera, carrera.NombreCarrera FROM carrera");
+		return response()->json(
+            $carrera
+        );
+	}
+
 	public function create(){
 		return view('carrera.create');
 	}
@@ -49,23 +56,9 @@ class CarreraController extends Controller
 	}
 
 	public function destroy($id){
-		$carrera = Carrera::find($id);
-        $carrera->delete();
+		$carrera = Carrera::where('idcarrera', $id)->delete();
 
         return response()->json(['mensaje'=>'eliminado']);
 	}
-
-	public function correct($id){
-		$carrera = Carrera::find($id);
-		return $carrera;
-	}
-
-	public function listing(){
-		$carrera = DB::select("SELECT carrera.idcarrera, carrera.CodCarrera, carrera.NombreCarrera FROM carrera");
-		return response()->json(
-            $carrera
-        );
-	}
-
 
 }
