@@ -14,13 +14,13 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-university" style="color:black;width:15px;"></i></span>
-						{!!Form::text('nombre', null, ['id'=>'codigoCarrrera', 'class'=>'form-control', 'placeholder'=>'Codigo de la Carrera'])!!}
+						{!!Form::text('codigoCarreraA', null, ['id'=>'codigoCarrreraA', 'class'=>'form-control', 'placeholder'=>'Codigo de la Carrera'])!!}
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-university" style="color:black;width:15px;"></i></span>
-						{!!Form::text('nombre', null, ['id'=>'nombreCarrrera', 'class'=>'form-control', 'placeholder'=>'Nombre de la Carrera'])!!}
+						{!!Form::text('nombreCarreraA', null, ['id'=>'nombreCarrreraA', 'class'=>'form-control', 'placeholder'=>'Nombre de la Carrera'])!!}
 					</div>
 				</div>
 			

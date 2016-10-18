@@ -161,7 +161,7 @@
         if ('{{Request::path()}}' == 'admin'){
           $('#dashboard').fadeIn();
         }
-        setDetails({!!Auth::user()->id!!});
+        //setDetails({!!Auth::user()->id!!});
 
         $('#userPassButton').on('click', function(){
           $('#modalUserPass').modal('toggle');

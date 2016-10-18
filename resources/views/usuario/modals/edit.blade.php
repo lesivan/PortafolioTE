@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon" style="color:black;">{!!Form::label('Tipo de usuario: ', null, ['style'=>'width:100px;'])!!}</span>
-						{!!Form::select('tiposA', ['placeholder'=>'Selecciona'], null, ['id'=>'tiposA', 'class'=>'form-control select2', 'style'=>'width:100%;'])!!}
+						{!!Form::select('tiposA', [], null, ['id'=>'tiposA', 'class'=>'form-control select2', 'style'=>'width:100%;'])!!}
 					</div>
 				</div>
 			</div>
