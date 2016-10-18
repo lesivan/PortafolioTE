@@ -12,8 +12,8 @@ function listar(){
 			$('#datos').append('<tr><td>'+(key+1)+'</td>'+
 				'<td>'+value.CodCarrera+'</td>'+
 				'<td>'+value.NombreCarrera+'</td>'+
-				'<td><button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
-				'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
+				'<td><button value='+value.idcarrera+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
+				'<button value='+value.idcarrera+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
 		});
 	});
 }
@@ -25,7 +25,6 @@ $('#agregar').on('click', function(){
 	var JData = {
 		CodCarrera: $('#codigoCarrrera').val(), NombreCarrera: $('#nombreCarrrera').val()
 		};
-
 	$.ajax({
 		url: '/carrera',
 		headers: {'X-CSRF-TOKEN': $('#token').val()},
@@ -78,16 +77,20 @@ function eliminar(btn){
 	});
 }
 
-$('#actualizar').on('click', function(){
-	
-	var JData;
-	
-			JData = {
-				CodCarrera: $('#codigoCarrrera').val(), NombreCarrera: $('#nombreCarrrera').val()
-			};
-	
-	
+function mostrar(btn){
+	$.get('/carrera/'+btn.value+'/edit', function(res){
+		$('#codigoCarrreraA').val(res.CodCarrera);
+		$('#nombreCarrreraA').val(res.NombreCarrera);
+	})	
+}
 
+$('#actualizar').on('click', function(){
+	var JData;
+			JData = {
+				CodCarrera: $('#codigoCarrreraA').val(), NombreCarrera: $('#nombreCarrreraA').val()
+			};
+		
+	
 	$.ajax({
 		url: '/carrera/'+$('#idn').val(),
 		headers: {'X-CSRF-TOKEN': $('#token').val()},
@@ -97,11 +100,10 @@ $('#actualizar').on('click', function(){
 		success: function(){
 			listar();
 			$('#modalEdit').modal('toggle');
-			$('#codigoCarrrera').val('');
-			$('#nombreCarrrera').val('');
+			$('#codigoCarrreraA').val('');
+			$('#nombreCarrreraA').val('');
 			
-			
-
+		
 			$('#msjuser').removeClass('alert-danger');
 			$('#msjuser').addClass('alert-success');
 			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');
