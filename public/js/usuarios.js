@@ -9,8 +9,10 @@ function setTypes(){
 	$.get('/types', function(res){
 		$('#tipos').empty();
 		$('#tipos').append('<option value="placeholder">Seleccione un tipo</option>');
+		$('#tiposA').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
 			$('#tipos').append('<option value="'+value.id+'">'+value.name+'</option>');
+			$('#tiposA').append('<option value="'+value.id+'">'+value.name+'</option>');
 		});
 	});
 }
