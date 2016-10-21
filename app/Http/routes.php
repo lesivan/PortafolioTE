@@ -32,6 +32,9 @@ Route::get('estudiantes','EstudianteController@listing');
 Route::resource('carrera','CarreraController');
 Route::get('carreras','CarreraController@listing');
 
+Route::resource('lineainvestigacion','LineaInvesController');
+Route::get('lineasinvestigacion','LineaInvesController@listing');
+
 
 
 
