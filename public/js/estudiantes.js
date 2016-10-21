@@ -66,10 +66,11 @@ $('#agregar').on('click', function(){
 		return;
 	}
 	var JData = {
-		Nombre: $('#nombre').val(), Apellido: $('#apellido').val(), Ncarnet: $('#carnet').val() , correo: $('#correo').val(),
-		 NombreCarrera: $('#carrera').val(),
-		descripcion: $('#turno').val()
+		Ncarnet: $('#carnet').val() ,Nombre: $('#nombre').val(), Apellido: $('#apellido').val(), correo: $('#correo').val(),
+		 idcarrera: $('#carrera').val(), idturno: $('#turno').val()
 		};
+
+		console.log(JData);
 
 	$.ajax({
 		url: '/estudiante',
