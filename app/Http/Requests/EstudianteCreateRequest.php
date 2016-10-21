@@ -24,10 +24,10 @@ class EstudianteCreateRequest extends Request
     public function rules()
     {
         return [
-        
+            
+            'Ncarnet' => 'required',
             'Nombre' => 'required',
             'Apellido' => 'required',
-            'Ncarnet' => 'required',
             'correo' => 'required',
         ];
     }
