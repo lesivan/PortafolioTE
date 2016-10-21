@@ -51,8 +51,8 @@
                   @if (Auth::user()->id_type == 1)
                   <li><a><i class="fa fa-desktop"></i>Catalogos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="LineaInvestigacion.html">Agregar Linea de Investigacion</a></li>
-                      <li><a href="Carrera.html">Agregar Carrera</a></li>
+                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Agregar Linea de Investigacion</a></li>
+                      <li><a href="{!!URL::to('/carrera')!!}">Agregar Carrera</a></li>
                     </ul>
                   </li>
                   @endif

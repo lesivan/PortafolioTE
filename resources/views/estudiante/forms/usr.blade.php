@@ -49,9 +49,10 @@
 			</div>
 		</div>
 	</section>
-	
-	<div class="pull-left" style="padding-left:450px;">
-		{!!link_to('#', $title='Agregar', $attributes=['id'=>'agregar', 'class'=>'btn btn-primary btn-flat'], $secure = null)!!}
-	</div>
+	<div class="form-group">
+        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-1">
+             {!!link_to('#', $title='Agregar', $attributes=['id'=>'agregar', 'class'=>'btn btn-primary'], $secure = null)!!}
+        </div>
+    </div>
 </div>
 <br>
