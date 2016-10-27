@@ -26,7 +26,7 @@ class CarreraController extends Controller
 	}
 
 	public function create(){
-		return view('carrera.create');
+		return view('asignatura.create');
 	}
 
 	public function store(CarreraRequest $req){
@@ -49,9 +49,8 @@ class CarreraController extends Controller
 	public function update(Request $req, $id){
 		
 
-		$carrera = Carrera::find($id);
-		$carrera->fill($req->all());
-		$carrera->save();
+		$carrera = Carrera::where('idcarrera', $id)->save();;
+		
 		return response()->json(['mensaje' => 'actualizado']);
 	}
 
