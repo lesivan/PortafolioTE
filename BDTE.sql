@@ -130,7 +130,7 @@ create table if not exists `proyectos`
 
  constraint `idLInvestAsignatura`
  foreign key (`idLInvestAsignatura`)
- references `LInvestAsignatura`(`idLInvestAsignatura`)
+ references `linvestasignatura`(`idLInvestAsignatura`)
  on delete cascade
  on update cascade
 
