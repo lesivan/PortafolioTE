@@ -7,6 +7,5 @@
 
     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
         {!!link_to('#', $title='Agregar', $attributes=['id'=>'agregar', 'class'=>'btn btn-primary'], $secure = null)!!}
-        <span class="fa fa-university form-control-feedback right" aria-hidden="true"></span>
     </div>
 </form>
