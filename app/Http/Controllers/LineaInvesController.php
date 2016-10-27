@@ -32,6 +32,12 @@ class LineaInvesController extends Controller
     	}
     }
 
+    public function destroy($id){
+		$Linea = LineaInvestigacion::where('idlineainvestigacion', $id)->delete();
+
+        return response()->json(['mensaje'=>'eliminado']);
+	}
+
 	public function listing(){
 		$Linea = DB::select("SELECT lineainvestigacion.idlineainvestigacion, lineainvestigacion.nombrelineainvestigacion  FROM lineainvestigacion");
 		return response()->json(
