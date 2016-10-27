@@ -8,7 +8,7 @@ class Asignatura extends Model
 {
     public $timestamps = false;
 
-    protected $table = 'proyectos';
+    protected $table = 'asignatura';
 
     protected $fillable = ['codasignatura', 'nombreasignatura'];
 }
