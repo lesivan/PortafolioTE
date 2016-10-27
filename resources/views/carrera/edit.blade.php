@@ -4,7 +4,7 @@
 	@include('alerts.request')
 	<div id="divider"></div>
 	<div class="form-group">
-		{!!Form::model($user, ['route'=>['carrera.update', $carrera->idcarrera], 'method'=>'PUT'])!!}
+		{!!Form::model($carrera, ['route'=>['carrera.update', $carrera->idcarrera], 'method'=>'PUT'])!!}
 			@include('carrera.forms.cra')
 			{!!Form::submit('Modificar', ['class'=>'btn btn-primary'])!!}
 		{!!Form::close()!!}
