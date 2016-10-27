@@ -49,10 +49,18 @@
                     </ul>
                   </li>
                   @if (Auth::user()->id_type == 1)
-                  <li><a><i class="fa fa-desktop"></i>Catalogos <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i>Carrera <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Agregar Linea de Investigacion</a></li>
                       <li><a href="{!!URL::to('/carrera')!!}">Agregar Carrera</a></li>
+                      <li><a href="{!!URL::to('/turno')!!}">Agregar Turno</a></li>
+                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Turno de Carrera</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i>Asignatura <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{!!URL::to('/asignatura')!!}">Agregar Asignatura</a></li>
+                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Agregar Linea de Investigacion</a></li>
+                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Linea de Asignatura</a></li>
                     </ul>
                   </li>
                   @endif
