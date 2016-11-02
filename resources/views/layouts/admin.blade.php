@@ -81,6 +81,8 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a id="userPassButton"><i class="fa fa-user pull-right"></i>Cambiar Contraseña</a></li>
+                    
                     <li><a href="{!!URL::to('/logout')!!}"><i class="fa fa-sign-out pull-right"></i>Cerrar Sesión</a></li>
                   </ul>
                 </li>@if (Auth::user()->id_type == 1)
