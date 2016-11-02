@@ -41,6 +41,11 @@ Route::get('turnos','TurnoController@listing');
 Route::resource('asignatura','AsignaturaController');
 Route::get('asignaturas','AsignaturaController@listing');
 
+Route::resource('carreraturno','CarreraTurnoController');
+Route::get('typesTu','CarreraTurnoController@typesTurno');
+Route::get('typesCa','CarreraTurnoController@typesCarrera');
+Route::get('carreraturnos','CarreraTurnoController@listing');
+
 
 
 

@@ -26,7 +26,7 @@ class CarreraController extends Controller
 	}
 
 	public function create(){
-		return view('asignatura.create');
+		return view('carrera.create');
 	}
 
 	public function store(CarreraRequest $req){
