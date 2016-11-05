@@ -53,7 +53,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{!!URL::to('/carrera')!!}">Agregar Carrera</a></li>
                       <li><a href="{!!URL::to('/turno')!!}">Agregar Turno</a></li>
-                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Turno de Carrera</a></li>
+                      <li><a href="{!!URL::to('/carreraturno')!!}">Turno de Carrera</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i>Asignatura <span class="fa fa-chevron-down"></span></a>
@@ -104,7 +104,7 @@
           <h1>Portafolio TE</h1>
         </section>
 
-                    <div class="row">
+                  <div class="row">
                       <div class="animated flipInY col-lg-4 col-md-3 col-sm- col-xs-6">
                         <div class="tile-stats">
                           <div class="icon"><i class="fa fa-caret-square-o-right"></i>
