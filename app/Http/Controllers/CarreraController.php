@@ -39,7 +39,7 @@ class CarreraController extends Controller
     }
 
     public function edit($id){
-		$carrera = Carrera::find($id);
+		$carrera = Carrera::where('idcarrera', $id);
 
         return response()->json(
             $carrera->toArray()
