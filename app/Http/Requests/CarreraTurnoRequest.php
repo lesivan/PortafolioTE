@@ -24,7 +24,7 @@ class CarreraTurnoRequest extends Request
     public function rules()
     {
         return [
-            'CodCarrera' => 'required',
+            'idcarrera' => 'required',
             'idturno' => 'required',
         ];
     }

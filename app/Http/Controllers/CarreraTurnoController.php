@@ -19,7 +19,7 @@ class CarreraTurnoController extends Controller
 	}
 
 	public function listing(){
-		$carreraturno = DB::select("SELECT carreraturno.idCarreraTurno, carreraturno.CodCarrera, carreraturno.idturno FROM carreraturno");
+		$carreraturno = DB::select("select carreraturno.idCarreraTurno, carreraturno.idcarrera, carrera.NombreCarrera, carreraturno.idturno, turno.descripcion from carreraturno inner join carrera on carreraturno.idcarrera = carrera.idcarrera inner join turno on carreraturno.idturno = turno.idturno");
 		return response()->json(
             $carreraturno
         );
@@ -51,4 +51,11 @@ class CarreraTurnoController extends Controller
             $typesC
         );
 	}
+
+	public function destroy($id){
+		$carreraturno = CarreraTurno::where('idCarreraTurno', $id)->delete();
+
+        return response()->json(['mensaje'=>'eliminado']);
+	}
+
 }
