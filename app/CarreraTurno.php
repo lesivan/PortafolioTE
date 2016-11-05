@@ -10,5 +10,5 @@ class CarreraTurno extends Model
 
     protected $table = 'carreraturno';
 
-    protected $fillable = ['CodCarrera', 'idturno'];
+    protected $fillable = ['idcarrera', 'idturno'];
 }
