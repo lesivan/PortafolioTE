@@ -4,7 +4,7 @@
 	@include('alerts.request')
 	<div id="divider"></div>
 	<div class="form-group">
-		{!!Form::model($user, ['route'=>['lineainvestigacion.update', $lineainvestigacion->idlineainvestigacion], 'method'=>'PUT'])!!}
+		{!!Form::model($linea, ['route'=>['lineainvestigacion.update', $linea->id], 'method'=>'PUT'])!!}
 			@include('lineainvestigacion.forms.li')
 			{!!Form::submit('Modificar', ['class'=>'btn btn-primary'])!!}
 		{!!Form::close()!!}
