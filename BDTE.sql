@@ -36,13 +36,13 @@ ALTER TABLE `users` MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_I
 
 create table if not exists `turno`
 (
-`idturno` int auto_increment not null primary key,
+`id` int auto_increment not null primary key,
 `descripcion` varchar(45) not null
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 create table if not exists `carrera`
 (
-`idcarrera` int auto_increment not null primary key,
+`id` int auto_increment not null primary key,
 `CodCarrera` varchar(30) not null  unique,
 `NombreCarrera` varchar(45) not null
 
@@ -51,19 +51,19 @@ create table if not exists `carrera`
 create table if not exists `carreraturno`
 (
 
-`idCarreraTurno` Int not null auto_increment primary key,
+`id` Int not null auto_increment primary key,
 `idcarrera` int not null,
 `idturno` int not null,
 
 constraint `idcarrera`
 foreign key (`idcarrera`)
-references `carrera`(`idcarrera`)
+references `carrera`(`id`)
 on delete cascade
 on update cascade,
 
 constraint `idturno`
 foreign key (`idturno`)
-references `turno`(`idturno`)
+references `turno`(`id`)
 on delete cascade
 on update cascade
 );
@@ -71,7 +71,7 @@ on update cascade
 
 create table if not exists `estudiante`
 (
-`idestudiante` int not null auto_increment primary key,
+`id` int not null auto_increment primary key,
 `Ncarnet` int not null unique,
 `Nombre` varchar(45) not null,
 `Apellido` varchar(45) not null,
@@ -79,7 +79,7 @@ create table if not exists `estudiante`
 `idCarreraTurno` int not null,
 constraint  `idCarreraTurno`
 foreign key (`idCarreraTurno`)
-references `carreraturno`(`idCarreraTurno`)
+references `carreraturno`(`id`)
 on delete cascade
 on update cascade
 
@@ -87,14 +87,14 @@ on update cascade
 
 create table if not exists `lineainvestigacion`
 (
-`idlineainvestigacion` int auto_increment not null  primary key,
+`id` int auto_increment not null  primary key,
 `nombrelineainvestigacion` varchar(300) not null
 
 );
 
 create table if not exists `asignatura`
 (
-`idasig` int not null auto_increment primary key,
+`id` int not null auto_increment primary key,
 `codasignatura` varchar(30) not null unique,
 `nombreasignatura` varchar(50) not null
 
@@ -102,26 +102,26 @@ create table if not exists `asignatura`
 
 create table if not exists `linvestasignatura`
 (
-`idLInvestAsignatura` int auto_increment not null primary key,
+`id` int auto_increment not null primary key,
 `idasig` int,
 `idlineainvestigacion` int,
 
 constraint `idlineainvestigacion`
 foreign key (`idlineainvestigacion`)
-references `lineainvestigacion`(`idlineainvestigacion`)
+references `lineainvestigacion`(`id`)
 on delete cascade
 on update cascade,
 
 constraint `idasig`
 foreign key (`idasig`)
-references `asignatura`(`idasig`)
+references `asignatura`(`id`)
 on delete cascade
 on update cascade
 );
 
 create table if not exists `proyectos`
 (
-`idproyectos` int not null auto_increment primary key,
+`id` int not null auto_increment primary key,
 `nombreProyecto` varchar(30) not null,
 `anorealizado` date not null,
 `archivoadjunto` varchar(30) null null,
@@ -130,7 +130,7 @@ create table if not exists `proyectos`
 
  constraint `idLInvestAsignatura`
  foreign key (`idLInvestAsignatura`)
- references `linvestasignatura`(`idLInvestAsignatura`)
+ references `linvestasignatura`(`id`)
  on delete cascade
  on update cascade
 
@@ -139,19 +139,19 @@ create table if not exists `proyectos`
 
 create table if not exists `estudiantehaceproyectos`
 (
- `EstuHacePro` int not null auto_increment primary key,
- `Ncarnet` int not null, 
+ `id` int not null auto_increment primary key,
+ `idestudiante` int not null, 
  `idproyectos` int not null,
  
- constraint `Ncarnet`
- foreign key (`Ncarnet`)
- references `estudiante`(`Ncarnet`)
+ constraint `idestudiante`
+ foreign key (`idestudiante`)
+ references `estudiante`(`id`)
  on delete cascade
 on update cascade,
 
  constraint `idproyectos`
  foreign key (`idproyectos`)
- references `proyectos`(`idproyectos`)
+ references `proyectos`(`id`)
 on delete cascade
 on update cascade
 );
