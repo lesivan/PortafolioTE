@@ -17,7 +17,7 @@ class AsignaturaController extends Controller
 	}
 
 	public function listing(){
-		$asignatura = DB::select("SELECT asignatura.idasig, asignatura.codasignatura, asignatura.nombreasignatura FROM asignatura");
+		$asignatura = DB::select("SELECT asignatura.id, asignatura.codasignatura, asignatura.nombreasignatura FROM asignatura");
 		return response()->json(
             $asignatura
         );
@@ -37,8 +37,28 @@ class AsignaturaController extends Controller
     }
     
 
-    public function destroy($id){
-		$asignatura = Asignatura::where('idasig', $id)->delete();
+    public function edit($id){
+		$asignatura = Asignatura::find($id);
+
+        return response()->json(
+            $asignatura->toArray()
+        );
+	}
+
+	public function update(AsignaturaRequest $req, $id){
+		
+
+		$asignatura = Asignatura::find($id);
+		$asignatura->fill($req->all());
+		$asignatura->save();
+		return response()->json(['mensaje' => 'actualizado']);
+	}
+
+	
+
+	public function destroy($id){
+		$asignatura = Asignatura::find($id);
+        $asignatura->delete();
 
         return response()->json(['mensaje'=>'eliminado']);
 	}

@@ -32,17 +32,37 @@ class LineaInvesController extends Controller
     	}
     }
 
-    public function destroy($id){
-		$Linea = LineaInvestigacion::where('idlineainvestigacion', $id)->delete();
-
-        return response()->json(['mensaje'=>'eliminado']);
+	public function listing(){
+		$linea = DB::select("SELECT lineainvestigacion.id, lineainvestigacion.nombrelineainvestigacion  FROM lineainvestigacion");
+		return response()->json(
+            $linea
+        );
 	}
 
-	public function listing(){
-		$Linea = DB::select("SELECT lineainvestigacion.idlineainvestigacion, lineainvestigacion.nombrelineainvestigacion  FROM lineainvestigacion");
-		return response()->json(
-            $Linea
+	 public function edit($id){
+		$linea = LineaInvestigacion::find($id);
+
+        return response()->json(
+            $linea->toArray()
         );
+	}
+
+	public function update(Request $req, $id){
+		
+
+		$linea = LineaInvestigacion::find($id);
+		$linea->fill($req->all());
+		$linea->save();
+		return response()->json(['mensaje' => 'actualizado']);
+	}
+
+	
+
+	public function destroy($id){
+		$linea = LineaInvestigacion::find($id);
+        $linea->delete();
+
+        return response()->json(['mensaje'=>'eliminado']);
 	}
 
 }

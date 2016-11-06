@@ -31,17 +31,38 @@ class TurnoController extends Controller
     	}
     }
 
-     public function destroy($id){
-		$Turno = Turno::where('idturno', $id)->delete();
-
-        return response()->json(['mensaje'=>'eliminado']);
-	}
-
 
     public function listing(){
-		$Turno = DB::select("SELECT turno.idturno, turno.descripcion FROM turno");
+		$turno = DB::select("SELECT turno.id, turno.descripcion FROM turno");
 		return response()->json(
-            $Turno
+            $turno
         );
 	}
+
+
+    public function edit($id){
+        $turno = Turno::find($id);
+
+        return response()->json(
+            $turno->toArray()
+        );
+    }
+
+    public function update(Request $req, $id){
+        
+
+        $turno = Turno::find($id);
+        $turno->fill($req->all());
+        $turno->save();
+        return response()->json(['mensaje' => 'actualizado']);
+    }
+
+    
+
+    public function destroy($id){
+        $turno = Turno::find($id);
+        $turno->delete();
+
+        return response()->json(['mensaje'=>'eliminado']);
+    }
 }

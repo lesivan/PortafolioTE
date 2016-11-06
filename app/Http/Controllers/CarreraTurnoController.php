@@ -19,7 +19,7 @@ class CarreraTurnoController extends Controller
 	}
 
 	public function listing(){
-		$carreraturno = DB::select("select carreraturno.idCarreraTurno, carreraturno.idcarrera, carrera.NombreCarrera, carreraturno.idturno, turno.descripcion from carreraturno inner join carrera on carreraturno.idcarrera = carrera.idcarrera inner join turno on carreraturno.idturno = turno.idturno");
+		$carreraturno = DB::select("SELECT carreraturno.id, carreraturno.id, carrera.NombreCarrera, carreraturno.id, turno.descripcion FROM carreraturno inner join carrera on carreraturno.idcarrera = carrera.id inner join turno on carreraturno.idturno = turno.id");
 		return response()->json(
             $carreraturno
         );
@@ -52,8 +52,28 @@ class CarreraTurnoController extends Controller
         );
 	}
 
+	public function edit($id){
+		$carreraturno = CarreraTurno::find($id);
+
+        return response()->json(
+            $carreraturno->toArray()
+        );
+	}
+
+	public function update(Request $req, $id){
+		
+
+		$carreraturno = Carrera::find($id);
+		$carreraturno->fill($req->all());
+		$carreraturno->save();
+		return response()->json(['mensaje' => 'actualizado']);
+	}
+
+	
+
 	public function destroy($id){
-		$carreraturno = CarreraTurno::where('idCarreraTurno', $id)->delete();
+		$carreraturno = CarreraTurno::find($id);
+        $carreraturno->delete();
 
         return response()->json(['mensaje'=>'eliminado']);
 	}

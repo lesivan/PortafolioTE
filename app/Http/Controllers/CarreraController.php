@@ -19,7 +19,7 @@ class CarreraController extends Controller
 	}
 
 	public function listing(){
-		$carrera = DB::select("SELECT carrera.idcarrera, carrera.CodCarrera, carrera.NombreCarrera FROM carrera");
+		$carrera = DB::select("SELECT carrera.id, carrera.CodCarrera, carrera.NombreCarrera FROM carrera");
 		return response()->json(
             $carrera
         );
@@ -39,7 +39,7 @@ class CarreraController extends Controller
     }
 
     public function edit($id){
-		$carrera = Carrera::where('idcarrera', $id);
+		$carrera = Carrera::find($id);
 
         return response()->json(
             $carrera->toArray()
@@ -49,13 +49,17 @@ class CarreraController extends Controller
 	public function update(Request $req, $id){
 		
 
-		$carrera = Carrera::where('idcarrera', $id)->save();;
-		
+		$carrera = Carrera::find($id);
+		$carrera->fill($req->all());
+		$carrera->save();
 		return response()->json(['mensaje' => 'actualizado']);
 	}
 
+	
+
 	public function destroy($id){
-		$carrera = Carrera::where('idcarrera', $id)->delete();
+		$carrera = Carrera::find($id);
+        $carrera->delete();
 
         return response()->json(['mensaje'=>'eliminado']);
 	}
