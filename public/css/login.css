@@ -3,20 +3,20 @@ body{
 	margin-top: 10%;
 	display: block;
     height: 100%;
-    background-color: #1c6399;
-    background-image: -webkit-radial-gradient(circle, #1c6399, #274256);
-    background-image: radial-gradient(circle, #1c6399, #274256);
+    background-color: #2a3f54;
     overflow: hidden;
 }
 
 .form-control{
 	border: 1px solid #aeec66;
-    background-color: #85c23c;
+    background-color: #2a3f54;
     color: #eee;
+
 }
 
 .login-box-body{
 	background-color: #96D24F;
+    align-items: center;    
 }
 
 .form-control::-webkit-input-placeholder {color: #FFF;}
