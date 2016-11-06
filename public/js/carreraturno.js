@@ -11,7 +11,7 @@ function setTypesTurno(){
 		$('#turnos').empty();
 		$('#turnos').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
-			$('#turnos').append('<option value="'+value.idturno+'">'+value.descripcion+'</option>');
+		$('#turnos').append('<option value="'+value.id+'">'+value.descripcion+'</option>');
 			
 		});
 	});
@@ -22,7 +22,7 @@ function setTypesCarrera(){
 		$('#carreras').empty();
 		$('#carreras').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
-			$('#carreras').append('<option value="'+value.idcarrera+'">'+value.NombreCarrera+'</option>');
+			$('#carreras').append('<option value="'+value.id+'">'+value.NombreCarrera+'</option>');
 			
 		});
 	});
@@ -35,8 +35,8 @@ function listar(){
 			$('#datos').append('<tr><td>'+(key+1)+'</td>'+
 				'<td>'+value.NombreCarrera+'</td>'+
 				'<td>'+value.descripcion+'</td>'+
-				'<td><button value='+value.idCarreraTurno+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
-				((value.id==1)?'':'<button value='+value.idCarreraTurno+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>')+'</td></tr>');
+				'<td><button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
+				'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
 		});
 	});
 }

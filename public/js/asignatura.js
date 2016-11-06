@@ -12,8 +12,8 @@ function listar(){
 			$('#datos').append('<tr><td>'+(key+1)+'</td>'+
 				'<td>'+value.codasignatura+'</td>'+
 				'<td>'+value.nombreasignatura+'</td>'+
-				'<td><button value='+value.idasig+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
-				'<button value='+value.idasig+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
+				'<td><button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
+				'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
 		});
 	});
 }
@@ -79,8 +79,8 @@ function eliminar(btn){
 
 function mostrar(btn){
 	$.get('/asignatura/'+btn.value+'/edit', function(res){
-		$('#codigoAsignaturaA').val(res.CodCarrera);
-		$('#nombreAsignaturaA').val(res.NombreCarrera);
+		$('#codigoAsignaturaA').val(res.codasignatura);
+		$('#nombreAsignaturaA').val(res.nombreasignatura);
 	})	
 }
 

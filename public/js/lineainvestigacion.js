@@ -11,8 +11,8 @@ function listar(){
 		$(res).each(function(key, value){
 			$('#datos').append('<tr><td>'+(key+1)+'</td>'+
 				'<td>'+value.nombrelineainvestigacion+'</td>'+
-				'<td><button value='+value.idlineainvestigacion+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
-				'<button value='+value.idlineainvestigacion+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
+				'<td><button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
+				'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
 		});
 	});
 }

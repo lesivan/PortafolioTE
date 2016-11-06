@@ -12,8 +12,8 @@ function listar(){
 			$('#datos').append('<tr><td>'+(key+1)+'</td>'+
 				'<td>'+value.CodCarrera+'</td>'+
 				'<td>'+value.NombreCarrera+'</td>'+
-				'<td><button value='+value.idcarrera+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
-				'<button value='+value.idcarrera+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
+				'<td><button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
+				'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
 		});
 	});
 }
