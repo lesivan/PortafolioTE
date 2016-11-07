@@ -46,7 +46,7 @@ class CarreraController extends Controller
         );
 	}
 
-	public function update(Request $req, $id){
+	public function update(CarreraRequest $req, $id){
 		
 
 		$carrera = Carrera::find($id);

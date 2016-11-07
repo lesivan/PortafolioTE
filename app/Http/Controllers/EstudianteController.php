@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use PortafolioTE\Http\Requests;
 use PortafolioTE\Estudiante;
 use PortafolioTE\Turno;
+use PortafolioTE\CarreraTurno;
 use DB;
 use Carbon\Carbon;
 
@@ -29,20 +30,16 @@ class EstudianteController extends Controller
     		]);
     	}
 	}
-
-
+	
 	public function listing(){
-		$estudiante = DB::select("SELECT estudiante.idestudiante, estudiante.Nombre, estudiante.Apellido, estudiante.Ncarnet, 
-			carrera.NombreCarrera FROM estudiante
-			inner join carreraturno on estudiante.idestudiante= carreraturno.idCarreraTurno
-			inner join carrera on carreraturno.idCarreraTurno=carrera.idcarrera");
+		$estudiante = DB::select("SELECT estudiante.id, estudiante.Nombre, estudiante.Apellido, estudiante.Ncarnet FROM estudiante");
 		return response()->json(
             $estudiante
         );
 	}
 
 	public function typesTurno(){
-		$typesT = DB::select('SELECT * FROM turno');
+		$typesT = DB::select('SELECT carreraturno.id, carreraturno.idcarrera, turno.descripcion FROM carreraturno inner join turno on carreraturno.idturno = turno.id');
 		return response()->json(
             $typesT
         );

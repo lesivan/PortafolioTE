@@ -63,7 +63,7 @@ class CarreraTurnoController extends Controller
 	public function update(Request $req, $id){
 		
 
-		$carreraturno = Carrera::find($id);
+		$carreraturno = CarreraTurno::find($id);
 		$carreraturno->fill($req->all());
 		$carreraturno->save();
 		return response()->json(['mensaje' => 'actualizado']);
