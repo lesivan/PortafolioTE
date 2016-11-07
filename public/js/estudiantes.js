@@ -1,32 +1,52 @@
+var turnos = null;
+
 $(function(){
 	$(".select2").select2();
-	setTypesTurno();
+	getTypesTurno();
 	setTypesCarrera();
 	listar();
 
 });
 
-function setTypesTurno(){
-	$.get('/typesT', function(res){
-		$('#turno').empty();
-		$('#turno').append('<option value="placeholder">Seleccione un tipo</option>');
+function setTypesCarrera(){
+	$('#carrera').empty();
+	$.get('/typesC', function(res){
+		$('#carrera').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
-			$('#turno').append('<option value="'+value.idturno+'">'+value.descripcion+'</option>');
-			
+			$('#carrera').append('<option value="'+value.id+'">'+value.NombreCarrera+'</option>');
 		});
 	});
 }
 
-function setTypesCarrera(){
-	$.get('/typesC', function(res){
-		$('#carrera').empty();
-		$('#carrera').append('<option value="placeholder">Seleccione un tipo</option>');
-		$(res).each(function(key, value){
-			$('#carrera').append('<option value="'+value.idcarrera+'">'+value.NombreCarrera+'</option>');
-			
-		});
+function getTypesTurno(){
+	$.get('/typesT', function(res){
+		turnos = res;
+		setTypesTurno('placeholder');
+		console.log(turnos)
 	});
 }
+
+$('#carrera').on('change', function(){
+	if ($('#carrera').val()=='placeholder') {
+		$('#turno').empty();
+		$('#turno').append('<option value="placeholder">Selecciona una carrera antes..</option>');
+	}
+	setTypesTurno($('#carrera').val());
+});
+
+function setTypesTurno(id){
+	if (id!='placeholder') {
+		$('#turno').empty();
+		$('#turno').append('<option value="placeholder">Selecciona un turno</option>');
+		$(turnos).each(function(key, value){
+			if (value.idcarrera == id) {
+				$('#turno').append('<option value="'+value.id+'">'+value.descripcion+'</option>');
+			}
+		});
+	}
+}
+
+
 
 function listar(){
 	$('#datos').empty();

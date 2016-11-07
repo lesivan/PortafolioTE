@@ -10,8 +10,10 @@ function setTypesTurno(){
 	$.get('/typesTu', function(res){
 		$('#turnos').empty();
 		$('#turnos').append('<option value="placeholder">Seleccione un tipo</option>');
+		$('#turnosA').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
 		$('#turnos').append('<option value="'+value.id+'">'+value.descripcion+'</option>');
+		$('#turnosA').append('<option value="'+value.id+'">'+value.descripcion+'</option>');
 			
 		});
 	});
@@ -21,8 +23,10 @@ function setTypesCarrera(){
 	$.get('/typesCa', function(res){
 		$('#carreras').empty();
 		$('#carreras').append('<option value="placeholder">Seleccione un tipo</option>');
+		$('#carrerasA').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
 			$('#carreras').append('<option value="'+value.id+'">'+value.NombreCarrera+'</option>');
+			$('#carrerasA').append('<option value="'+value.id+'">'+value.NombreCarrera+'</option>');
 			
 		});
 	});
@@ -77,7 +81,6 @@ $('#agregar').on('click', function(){
 			listar();
 			$('#carreras').val('placeholder').trigger('change');
 			$('#turnos').val('placeholder').trigger('change');
-
 			$('#msjuser').removeClass('alert-danger');
 			$('#msjuser').addClass('alert-success');
 			$('#msjuser'+'-text').html('Registro agregado exitosamente!');
@@ -115,3 +118,65 @@ function eliminar(btn){
 		}
 	});
 }
+
+function mostrar(btn){
+	$.get('/carreraturno/'+btn.value+'/edit', function(res){
+		$('#idn').val(res.id);
+		$('#carrerasA').val(res.idcarrera).trigger('change');
+		$('#turnosA').val(res.idturno).trigger('change');
+	})	
+}
+
+$('#actualizar').on('click', function(){
+
+	if ($('#carrerasA').val()=='placeholder') {
+		$('#msjuser').removeClass('alert-success');
+		$('#msjuser').addClass('alert-danger');
+		$('#msjuser'+'-text').html('Debe seleccionar una Carrera!');
+		$('#msjuser').fadeIn();
+		window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		return;
+	}
+
+	if ($('#turnosA').val()=='placeholder') {
+		$('#msjuser').removeClass('alert-success');
+		$('#msjuser').addClass('alert-danger');
+		$('#msjuser'+'-text').html('Debe seleccionar un Turno!');
+		$('#msjuser').fadeIn();
+		window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		return;
+	}
+
+	
+	var JData;
+			JData = {
+				idcarrera: $('#carrerasA').val() ,idturno: $('#turnosA').val()
+			};
+		
+	
+	$.ajax({
+		url: '/carreraturno/'+$('#idn').val(),
+		headers: {'X-CSRF-TOKEN': $('#token').val()},
+		type: 'PUT',
+		dataType: 'json',
+		data: JData,
+		success: function(){
+			listar();
+			$('#modalEdit').modal('toggle');
+			$('#carrerasA').val('placeholder').trigger('change');
+			$('#turnosA').val('placeholder').trigger('change');
+			
+		
+			$('#msjuser').removeClass('alert-danger');
+			$('#msjuser').addClass('alert-success');
+			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');
+			$('#msjuser').fadeIn();
+			window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		},
+		error:function(msj){
+			$('#msjuser').removeClass('alert-success');
+			$('#msjuserA').addClass('alert-danger');
+			window.setTimeout(function(){$('#msjuserA').fadeOut();}, 2000);
+		}
+	});
+})

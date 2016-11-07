@@ -77,6 +77,41 @@ function eliminar(btn){
 
 function mostrar(btn){
 	$.get('/turno/'+btn.value+'/edit', function(res){
+		$('#idn').val(res.id);
 		$('#turnoA').val(res.descripcion);
 	})	
 }
+
+$('#actualizar').on('click', function(){
+	var JData;
+			JData = {
+				descripcion: $('#turnoA').val()
+			};
+		
+	
+	$.ajax({
+		url: '/turno/'+$('#idn').val(),
+		headers: {'X-CSRF-TOKEN': $('#token').val()},
+		type: 'PUT',
+		dataType: 'json',
+		data: JData,
+		success: function(){
+			listar();
+			$('#modalEdit').modal('toggle');
+			$('#turnoA').val('');			
+		
+			$('#msjuser').removeClass('alert-danger');
+			$('#msjuser').addClass('alert-success');
+			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');
+			$('#msjuser').fadeIn();
+			window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		},
+		error:function(msj){
+			$('#msjuser').removeClass('alert-success');
+			$('#msjuserA').addClass('alert-danger');
+			$('#msjuserA'+'-text').html((msj.responseJSON.descripcion!=undefined)?msj.responseJSON.descripcion:'');
+			$('#msjuserA').fadeIn();
+			window.setTimeout(function(){$('#msjuserA').fadeOut();}, 2000);
+		}
+	});
+})

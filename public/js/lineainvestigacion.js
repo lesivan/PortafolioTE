@@ -80,6 +80,7 @@ function eliminar(btn){
 
 function mostrar(btn){
 	$.get('/lineainvestigacion/'+btn.value+'/edit', function(res){
+		$('#idn').val(res.id);
 		$('#nombreliA').val(res.nombrelineainvestigacion);
 	})	
 }
@@ -102,8 +103,6 @@ $('#actualizar').on('click', function(){
 			$('#modalEdit').modal('toggle');
 			$('#nombreliA').val('');
 			
-			
-		
 			$('#msjuser').removeClass('alert-danger');
 			$('#msjuser').addClass('alert-success');
 			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');

@@ -79,6 +79,7 @@ function eliminar(btn){
 
 function mostrar(btn){
 	$.get('/asignatura/'+btn.value+'/edit', function(res){
+		$('#idn').val(res.id);
 		$('#codigoAsignaturaA').val(res.codasignatura);
 		$('#nombreAsignaturaA').val(res.nombreasignatura);
 	})	
@@ -87,7 +88,7 @@ function mostrar(btn){
 $('#actualizar').on('click', function(){
 	var JData;
 			JData = {
-				codasignatura: $('#codigoAsignatura').val(), nombreasignatura: $('#nombreAsignatura').val()
+				codasignatura: $('#codigoAsignaturaA').val(), nombreasignatura: $('#nombreAsignaturaA').val()
 			};
 		
 	

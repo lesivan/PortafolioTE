@@ -79,7 +79,7 @@ function eliminar(btn){
 
 function mostrar(btn){
 	$.get('/carrera/'+btn.value+'/edit', function(res){
-		console.log(res)
+		$('#idn').val(res.id);
 		$('#codigoCarrreraA').val(res.CodCarrera);
 		$('#nombreCarrreraA').val(res.NombreCarrera);
 	})	
