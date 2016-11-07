@@ -4,7 +4,7 @@
 	@include('alerts.request')
 	<div id="divider"></div>
 	<div class="form-group">
-		{!!Form::model($carrera, ['route'=>['carreraturno.update', $carrera->idcarrera], 'method'=>'PUT'])!!}
+		{!!Form::model($carreraturno, ['route'=>['carreraturno.update', $carreraturno->id], 'method'=>'PUT'])!!}
 			@include('carreraturno.forms.crt')
 			{!!Form::submit('Modificar', ['class'=>'btn btn-primary'])!!}
 		{!!Form::close()!!}
