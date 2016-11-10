@@ -46,6 +46,11 @@ Route::get('typesTu','CarreraTurnoController@typesTurno');
 Route::get('typesCa','CarreraTurnoController@typesCarrera');
 Route::get('carreraturnos','CarreraTurnoController@listing');
 
+Route::resource('lineaasignatura','LineaasignaturaController');
+Route::get('typesLi','LineaasignaturaController@typesLineas');
+Route::get('typesAs','LineaasignaturaController@typesAsignaturas');
+Route::get('lineasasignaturas','LineaasignaturaController@listing');
+
 
 
 
