@@ -22,7 +22,7 @@ function getTypesTurno(){
 	$.get('/typesT', function(res){
 		turnos = res;
 		setTypesTurno('placeholder');
-		console.log(turnos)
+	
 	});
 }
 
@@ -57,17 +57,17 @@ function listar(){
 				'<td>'+value.Apellido+'</td>'+
 				'<td>'+value.Ncarnet+'</td>'+
 				'<td>'+value.NombreCarrera+'</td>'+
+				'<td>'+value.descripcion+'</td>'+
 				'<td><button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
-				((value.id==1)?'':'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>')+'</td></tr>');
+				'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>'+'</td></tr>');
 		});
 	});
 }
 
 
 
-
 $('#agregar').on('click', function(){
-	
+	console.log('hola')
 	if ($('#carrera').val()=='placeholder') {
 		$('#msjuser').removeClass('alert-success');
 		$('#msjuser').addClass('alert-danger');
@@ -87,7 +87,7 @@ $('#agregar').on('click', function(){
 	}
 	var JData = {
 		Ncarnet: $('#carnet').val() ,Nombre: $('#nombre').val(), Apellido: $('#apellido').val(), correo: $('#correo').val(),
-		 idcarrera: $('#carrera').val(), idturno: $('#turno').val()
+		 idCarreraTurno: $('#turno').val()
 		};
 
 		console.log(JData);
@@ -126,3 +126,27 @@ $('#agregar').on('click', function(){
 		}
 	});
 });
+
+
+function danger(btn){
+	$('#confirmRemove').val(btn.value);
+}
+
+function eliminar(btn){
+	$.ajax({
+		url: '/estudiante/'+btn.value,
+		headers: {'X-CSRF-TOKEN': $('#token').val()},
+		type: 'DELETE',
+		dataType: 'json',
+		success: function(){
+			listar();
+			$('#modalRemove').modal('toggle');
+			$('#msjuser').removeClass('alert-danger');
+			$('#msjuser').addClass('alert-success');
+			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');
+			$('#msjuser').fadeIn();
+			window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		}
+	});
+}
+
