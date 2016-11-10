@@ -26,7 +26,7 @@
 			
 			</div>
 			<div class="modal-footer">
-				 {!!link_to('#', $title='Agregar', $attributes=['id'=>'agregar', 'class'=>'btn btn-primary'], $secure = null)!!}
+				 {!!link_to('#', $title='Agregar', $attributes=['id'=>'agregar2', 'class'=>'btn btn-primary'], $secure = null)!!}
 			</div>
 		</div>
 	</div>
