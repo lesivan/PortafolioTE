@@ -39,7 +39,7 @@
 							<strong id="msjuser-text"></strong>
 						</div>
 						<table class="table table-hover">
-							<thead><th>#</th><th>Nombre</th><th>Apellido</th><th>Carnet</th><th>Carrera</th><th>Opciones</th></thead>
+							<thead><th>#</th><th>Nombre</th><th>Apellido</th><th>Carnet</th><th>Carrera</th><th>Turno</th><th>Opciones</th></thead>
 							<tbody id="datos">
 
 							</tbody>
