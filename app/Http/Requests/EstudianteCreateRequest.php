@@ -25,10 +25,10 @@ class EstudianteCreateRequest extends Request
     {
         return [
             
-            'Ncarnet' => 'required|unique:users',
+            'Ncarnet' => 'required|unique:estudiante',
             'Nombre' => 'required',
             'Apellido' => 'required',
-            'correo' => 'required|unique:users',
+            'correo' => 'required|email|unique:estudiante',
         ];
     }
 }
