@@ -5,6 +5,7 @@ namespace PortafolioTE\Http\Controllers;
 use Illuminate\Http\Request;
 
 use PortafolioTE\Http\Requests;
+use PortafolioTE\Http\Requests\EstudianteCreateRequest;
 use PortafolioTE\Estudiante;
 use PortafolioTE\Turno;
 use PortafolioTE\CarreraTurno;
@@ -32,7 +33,8 @@ class EstudianteController extends Controller
 	}
 	
 	public function listing(){
-		$estudiante = DB::select("SELECT estudiante.id, estudiante.Nombre, estudiante.Apellido, estudiante.Ncarnet FROM estudiante");
+		$estudiante = DB::select("SELECT estudiante.id, estudiante.Nombre, estudiante.Apellido, estudiante.Ncarnet,
+		carreraturno.idcarrera, carrera.NombreCarrera, carreraturno.idturno, turno.descripcion  FROM estudiante inner join carreraturno on carreraturno.id = estudiante.idCarreraTurno inner join turno on carreraturno.idturno = turno.id inner join carrera on carreraturno.idcarrera = carrera.id" );
 		return response()->json(
             $estudiante
         );
@@ -50,5 +52,32 @@ class EstudianteController extends Controller
 		return response()->json(
             $typesC
         );
+	}
+
+
+	 public function edit($id){
+		$estudiante = Estudiante::find($id);
+
+        return response()->json(
+            $estudiante->toArray()
+        );
+	}
+
+	public function update(EstudianteCreateRequest $req, $id){
+		
+
+		$estudiante = Estudiante::find($id);
+		$estudiante->fill($req->all());
+		$estudiante->save();
+		return response()->json(['mensaje' => 'actualizado']);
+	}
+
+	
+
+	public function destroy($id){
+		$estudiante = Estudiante::find($id);
+        $estudiante->delete();
+
+        return response()->json(['mensaje'=>'eliminado']);
 	}
 }
