@@ -11,7 +11,7 @@
 	</div>
 	
 	<div class="form-group">
-		{!!Form::open(['route'=>['lineaasignatura.destroy', $lineaasignatura->idCarreraTurno], 'method'=>'DELETE'])!!}
+		{!!Form::open(['route'=>['lineaasignatura.destroy', $lineaasignatura->id], 'method'=>'DELETE'])!!}
 			{!!Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
 		{!!Form::close()!!}
 	</div>

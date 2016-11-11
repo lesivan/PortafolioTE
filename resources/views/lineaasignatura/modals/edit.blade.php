@@ -14,13 +14,13 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-university" style="color:black;width:15px;"></i>{!!Form::label('Carrera: ', null, ['style'=>'width:50px;'])!!}</span>
-						 {!!Form::select('carrerasA', ['placeholder'=>'Selecciona'], null, ['id'=>'carrerasA', 'class'=>'form-control select2', 'style'=>'width:100%;'])!!}
+						 {!!Form::select('asignaturasA', ['placeholder'=>'Selecciona'], null, ['id'=>'asignaturasA', 'class'=>'form-control select2', 'style'=>'width:100%;'])!!}
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-university" style="color:black;width:15px;"></i>{!!Form::label('Turno: ', null, ['style'=>'width:50px;'])!!}</span>
-						 {!!Form::select('turnosA', ['placeholder'=>'Selecciona'], null, ['id'=>'turnosA', 'class'=>'form-control select2', 'style'=>'width:100%;'])!!}
+						 {!!Form::select('lineasA', ['placeholder'=>'Selecciona'], null, ['id'=>'lineasA', 'class'=>'form-control select2', 'style'=>'width:100%;'])!!}
 					</div>
 				</div>
 			

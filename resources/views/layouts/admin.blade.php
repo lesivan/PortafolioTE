@@ -60,7 +60,7 @@
                     <ul class="nav child_menu">
                       <li><a href="{!!URL::to('/asignatura')!!}">Agregar Asignatura</a></li>
                       <li><a href="{!!URL::to('/lineainvestigacion')!!}">Agregar Linea de Investigacion</a></li>
-                      <li><a href="{!!URL::to('/lineainvestigacion')!!}">Linea de Asignatura</a></li>
+                      <li><a href="{!!URL::to('/lineaasignatura')!!}">Linea de Asignatura</a></li>
                     </ul>
                   </li>
                   @endif
