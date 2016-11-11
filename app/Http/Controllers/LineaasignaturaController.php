@@ -50,4 +50,30 @@ class LineaasignaturaController extends Controller
     		]);
     	}
     }
+
+    public function edit($id){
+		$lineaasignatura = LInvestAsignatura::find($id);
+
+        return response()->json(
+            $lineaasignatura->toArray()
+        );
+	}
+
+	public function update(Request $req, $id){
+		
+
+		$lineaasignatura = LInvestAsignatura::find($id);
+		$lineaasignatura->fill($req->all());
+		$lineaasignatura->save();
+		return response()->json(['mensaje' => 'actualizado']);
+	}
+
+	
+
+	public function destroy($id){
+		$lineaasignatura = LInvestAsignatura::find($id);
+        $lineaasignatura->delete();
+
+        return response()->json(['mensaje'=>'eliminado']);
+	}
 }
