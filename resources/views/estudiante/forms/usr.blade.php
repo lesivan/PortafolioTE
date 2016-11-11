@@ -28,7 +28,7 @@
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-envelope" style="color:black;width:15px;"></i></span>
-				{!!Form::email('correo', null, ['id'=>'correo', 'class'=>'form-control', 'placeholder'=>'Correo del usuario'])!!}
+				{!!Form::email('correo', null, ['id'=>'correo', 'class'=>'form-control', 'placeholder'=>'Correo del Estudiante'])!!}
 			</div>
 		</div>
 	</section>
