@@ -96,3 +96,88 @@ $('#agregar').on('click', function(){
 		}
 	});
 });
+
+function danger(btn){
+	$('#confirmRemove').val(btn.value);
+}
+
+function eliminar(btn){
+	$.ajax({
+		url: '/lineaasignatura/'+btn.value,
+		headers: {'X-CSRF-TOKEN': $('#token').val()},
+		type: 'DELETE',
+		dataType: 'json',
+		success: function(){
+			listar();
+			$('#modalRemove').modal('toggle');
+			$('#msjuser').removeClass('alert-danger');
+			$('#msjuser').addClass('alert-success');
+			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');
+			$('#msjuser').fadeIn();
+			window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		}
+	});
+}
+
+function mostrar(btn){
+	$.get('/lineaasignatura/'+btn.value+'/edit', function(res){
+		$('#idn').val(res.id);
+		$('#asignaturasA').val(res.idasig).trigger('change');
+		$('#lineasA').val(res.idlineainvestigacion).trigger('change');
+	})	
+}
+
+
+$('#actualizar').on('click', function(){
+
+	if ($('#asignaturasA').val()=='placeholder') {
+		$('#msjuser').removeClass('alert-success');
+		$('#msjuser').addClass('alert-danger');
+		$('#msjuser'+'-text').html('Debe seleccionar una Carrera!');
+		$('#msjuser').fadeIn();
+		window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		return;
+	}
+
+	if ($('#lineasA').val()=='placeholder') {
+		$('#msjuser').removeClass('alert-success');
+		$('#msjuser').addClass('alert-danger');
+		$('#msjuser'+'-text').html('Debe seleccionar un Turno!');
+		$('#msjuser').fadeIn();
+		window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		return;
+	}
+
+	
+	var JData;
+			JData = {
+			idasig: $('#asignaturasA').val() ,idlineainvestigacion: $('#lineasA').val()
+			};
+		
+	
+	$.ajax({
+		url: '/lineaasignatura/'+$('#idn').val(),
+		headers: {'X-CSRF-TOKEN': $('#token').val()},
+		type: 'PUT',
+		dataType: 'json',
+		data: JData,
+		success: function(){
+			listar();
+			$('#modalEdit').modal('toggle');
+			$('#asignaturasA').val('placeholder').trigger('change');
+			$('#lineasA').val('placeholder').trigger('change');
+			
+		
+			$('#msjuser').removeClass('alert-danger');
+			$('#msjuser').addClass('alert-success');
+			$('#msjuser'+'-text').html('Registros actualizados exitosamente!');
+			$('#msjuser').fadeIn();
+			window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+		},
+		error:function(msj){
+			$('#msjuser').removeClass('alert-success');
+			$('#msjuserA').addClass('alert-danger');
+			window.setTimeout(function(){$('#msjuserA').fadeOut();}, 2000);
+		}
+	});
+})
