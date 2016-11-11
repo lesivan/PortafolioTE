@@ -12,8 +12,10 @@ function setTypesCarrera(){
 	$('#carrera').empty();
 	$.get('/typesC', function(res){
 		$('#carrera').append('<option value="placeholder">Seleccione un tipo</option>');
+		$('#carreraA').append('<option value="placeholder">Seleccione un tipo</option>');
 		$(res).each(function(key, value){
 			$('#carrera').append('<option value="'+value.id+'">'+value.NombreCarrera+'</option>');
+			$('#carreraA').append('<option value="'+value.id+'">'+value.NombreCarrera+'</option>');
 		});
 	});
 }
@@ -30,6 +32,7 @@ $('#carrera').on('change', function(){
 	if ($('#carrera').val()=='placeholder') {
 		$('#turno').empty();
 		$('#turno').append('<option value="placeholder">Selecciona una carrera antes..</option>');
+		$('#turnoA').append('<option value="placeholder">Selecciona una carrera antes..</option>');
 	}
 	setTypesTurno($('#carrera').val());
 });
@@ -38,15 +41,15 @@ function setTypesTurno(id){
 	if (id!='placeholder') {
 		$('#turno').empty();
 		$('#turno').append('<option value="placeholder">Selecciona un turno</option>');
+		$('#turnoA').append('<option value="placeholder">Selecciona un turno</option>');
 		$(turnos).each(function(key, value){
 			if (value.idcarrera == id) {
 				$('#turno').append('<option value="'+value.id+'">'+value.descripcion+'</option>');
+				$('#turnoA').append('<option value="'+value.id+'">'+value.descripcion+'</option>');
 			}
 		});
 	}
 }
-
-
 
 function listar(){
 	$('#datos').empty();
@@ -150,3 +153,16 @@ function eliminar(btn){
 	});
 }
 
+function mostrar(btn){
+	$.get('/estudiante/'+btn.value+'/edit', function(res){
+		$('#idn').val(res.id);
+		$('#nombreA').val(res.Nombre);
+		$('#apellidoA').val(res.Apellido);
+		$('#carnetA').val(res.Ncarnet);
+		$('#correoA').val(res.correo);
+		$('#carreraA').val(res.NombreCarrera).trigger('change');
+		$('#turnoA').val(res.descripcion).trigger('change');
+
+
+	})	
+}
