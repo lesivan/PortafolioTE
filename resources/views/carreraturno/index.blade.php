@@ -57,4 +57,4 @@
 @section('scripts')
     {!!Html::script('js/carreraturno.js')!!}
     {!!Html::script('js/select2.full.min.js')!!}
-<@endsection></@endsection>
+@endsection
