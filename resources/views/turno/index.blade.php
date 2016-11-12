@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-	@include('turno.modals.danger')
-	@include('turno.modals.edit')
-		<div class="row">
+    @include('turno.modals.danger')
+    @include('turno.modals.edit')
+        <div class="row">
               <div class="col-md-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -15,7 +15,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                	@include('turno.forms.tu')
+                    @include('turno.forms.tu')
                   </div>
                 </div>
                 </div>
@@ -32,18 +32,18 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                		<div class="box-body table-responsive no-padding">
-						<br>
-						<div id="msjuser" class="alert alert-success alert-dismissible" role="alert" style="display:none">
-							<strong id="msjuser-text"></strong>
-						</div>
-						<table class="table table-hover">
-							<thead><th>#</th><th>Turno</th><th>Opciones</th></thead>
-							<tbody id="datos">
+                        <div class="box-body table-responsive no-padding">
+                        <br>
+                        <div id="msjuser" class="alert alert-success alert-dismissible" role="alert" style="display:none">
+                            <strong id="msjuser-text"></strong>
+                        </div>
+                        <table class="table table-hover">
+                            <thead><th>#</th><th>Turno</th><th>Opciones</th></thead>
+                            <tbody id="datos">
 
-							</tbody>
-						</table>
-					</div>	
+                            </tbody>
+                        </table>
+                    </div>    
                   </div>
                 </div>
 
@@ -51,10 +51,10 @@
 
                 </div>
                 </div>
-	
+    
 @endsection
 
 @section('scripts')
-	{!!Html::script('js/turno.js')!!}
-	{!!Html::script('js/select2.full.min.js')!!}
+    {!!Html::script('js/turno.js')!!}
+    {!!Html::script('js/select2.full.min.js')!!}
 @endsection
