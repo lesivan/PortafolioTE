@@ -32,6 +32,32 @@ function listar(){
 	});
 }
 
+
+$('#search').on('click', function(){
+	if($('#toSearch').val() != ''){
+		$('#datos').empty();
+		$.get('/usuarios/bySearch/'+$('#toSearch').val(), function(res){
+			if (res.length == 0) {
+				$('#msjuser').removeClass('alert-success');
+				$('#msjuser').addClass('alert-danger');
+				$('#msjuser'+'-text').html('No se encontraron resultados!');
+				$('#msjuser').fadeIn();
+				window.setTimeout(function(){$('#msjuser').fadeOut();}, 2000);
+			}
+			$(res).each(function(key, value){
+				$('#datos').append('<tr><td>'+(key+1)+'</td>'+
+				'<td>'+value.name+'</td>'+
+				'<td>'+value.email+'</td>'+
+				'<td>'+((value.type!=null)?value.type:'')+'</td>'+
+				'<button value='+value.id+' OnClick="mostrar(this);" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Editar</button> '+
+				((value.id==1)?'':'<button value='+value.id+' OnClick="danger(this);" class="btn btn-danger" data-toggle="modal" data-target="#modalRemove">Eliminar</button>')+'</td></tr>');
+			})
+		});
+	}else{
+		listar();
+	}
+});
+
 $('#registrar').on('click', function(){
 	if ($('#password').val() == '' || ($('#password').val() != $('#confirm').val())) {
 		$('#msjuser').removeClass('alert-success');
