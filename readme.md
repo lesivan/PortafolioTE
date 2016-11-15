@@ -1,6 +1,6 @@
 # Portafolio - TE
 
-[![FZT](http://te.unan.edu.ni/images/banner_web_te.png)](http://te.unan.edu.ni/)
+[![TE](http://te.unan.edu.ni/images/banner_web_te.png)](http://te.unan.edu.ni/)
 
 Portafolio de Proyectos realizados en el departamento de Tecnologia Educativa.
 
