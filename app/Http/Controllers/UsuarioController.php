@@ -82,4 +82,13 @@ class UsuarioController extends Controller
             $types
         );
 	}
+
+	public function usersBySearch($search){
+		$users = DB::select("SELECT users.id, users.name, users.email, user_types.name AS 'type' FROM users
+			LEFT JOIN user_types ON users.id_type = user_types.id
+            WHERE users.name LIKE '%".$search."%'");
+		return response()->json(
+            $users
+        );
+	}
 }
