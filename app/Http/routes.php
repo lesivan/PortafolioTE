@@ -22,6 +22,7 @@ Route::get('logout', 'LogController@logout');
 Route::get('types','UsuarioController@types');
 Route::get('usuarios','UsuarioController@listing');
 Route::resource('usuario','UsuarioController');
+Route::get('usuarios/bySearch/{search}', 'UsuarioController@usersBySearch');
 
 
 Route::resource('estudiante','EstudianteController');
@@ -50,6 +51,12 @@ Route::resource('lineaasignatura','LineaasignaturaController');
 Route::get('typesLi','LineaasignaturaController@typesLineas');
 Route::get('typesAs','LineaasignaturaController@typesAsignaturas');
 Route::get('lineasasignaturas','LineaasignaturaController@listing');
+
+Route::resource('proyecto','ProyectoController');
+Route::get('typesA','ProyectoController@typesAsignatura');
+Route::get('typesL','ProyectoController@typesLinea');
+Route::get('typesE','ProyectoController@typesEstudiante');
+
 
 
 
