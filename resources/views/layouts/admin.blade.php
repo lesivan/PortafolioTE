@@ -44,7 +44,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Opciones <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                      <li><a href="AgregarProyecto.html">Agregar Proyecto</a></li>
+                      <li><a href="{!!URL::to('/carrera')!!}">Agregar Proyecto</a></li>
                       <li><a href="{!!URL::to('/estudiante')!!}">Agregar Estudiante</a></li>
                     </ul>
                   </li>
